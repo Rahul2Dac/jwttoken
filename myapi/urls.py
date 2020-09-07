@@ -25,6 +25,10 @@ urlpatterns = [
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    path('item/',views.itemList.as_view()),
+    path('rice/',views.itemrice.as_view()),
+    
+    
 ]
 
 
