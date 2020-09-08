@@ -20,7 +20,7 @@ class itemList(APIView):
         return Response(serializer.data)
 
     def post(self):
-        pass
+        id = request.POST.get  
 
 class itemrice(APIView):
     permission_classes = (IsAuthenticated,) 
@@ -29,8 +29,12 @@ class itemrice(APIView):
         serializer=itemSerializer(rice)
         return Response(serializer.data)
 
-    def post(self):
-        pass
+    def post(self,request):
+        price = request.POST.get("price")
+        item2=item.objects.get(price=price) 
+        serializer=itemSerializer(item2)
+        return Response(serializer.data)
+        
 
 
 
