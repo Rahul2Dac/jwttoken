@@ -34,6 +34,12 @@ class itemrice(APIView):
         item2=item.objects.get(price=price) 
         serializer=itemSerializer(item2)
         return Response(serializer.data)
+
+    def post(self,request):
+        itemname = request.POST.get("itemname")
+        item3=item.objects.get(itemname=itemname) 
+        serializer=itemSerializer(item3)
+        return Response(serializer.data)
         
 
 
